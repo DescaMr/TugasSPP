@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 03, 2020 at 04:23 AM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.11
+-- Generation Time: Feb 06, 2020 at 08:20 AM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.0.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `dbspp_descamr`
+-- Database: `dbspp_syahrul`
 --
 
 -- --------------------------------------------------------
@@ -32,7 +32,7 @@ CREATE TABLE `kelas` (
   `id_kelas` int(11) NOT NULL,
   `nama_kelas` varchar(10) DEFAULT NULL,
   `kompetensi_keahlian` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -49,7 +49,7 @@ CREATE TABLE `pembayaran` (
   `tahun_bayar` varchar(4) DEFAULT NULL,
   `id_spp` int(11) DEFAULT NULL,
   `jumlah_bayar` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -58,12 +58,12 @@ CREATE TABLE `pembayaran` (
 --
 
 CREATE TABLE `petugas` (
-  `id_petugas` int(11) DEFAULT NULL,
+  `id_petugas` int(11) NOT NULL,
   `username` varchar(25) DEFAULT NULL,
   `password` varchar(32) DEFAULT NULL,
   `nama_petugas` varchar(35) DEFAULT NULL,
   `level` enum('admin','petugas') DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -76,22 +76,10 @@ CREATE TABLE `siswa` (
   `nis` char(8) DEFAULT NULL,
   `nama` varchar(35) DEFAULT NULL,
   `id_kelas` int(11) DEFAULT NULL,
-  `alamat` text DEFAULT NULL,
+  `alamat` text,
   `no_telp` varchar(13) DEFAULT NULL,
   `id_spp` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `siswa`
---
-
-INSERT INTO `siswa` (`nisn`, `nis`, `nama`, `id_kelas`, `alamat`, `no_telp`, `id_spp`) VALUES
-('11', '11', '11', 11, '11', '11', 11),
-('12', '12', '12', 12, '12', '12', 12),
-('123', '123', 'Syahrul Safarila', 12, 'Cianjur', '12', 12),
-('1234', '1234', 'deska mr', 3, 'jalan siliwangi no 70', '08994776004', 123456),
-('2532523523', '23523535', 'deska mr', 12, 'jalan siliwangi no 70', '', 123456),
-('9', '9', '9', 9, '9', '9', 9);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -103,7 +91,7 @@ CREATE TABLE `spp` (
   `id_spp` int(11) NOT NULL,
   `tahun` int(11) DEFAULT NULL,
   `nominal` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -120,6 +108,12 @@ ALTER TABLE `kelas`
 --
 ALTER TABLE `pembayaran`
   ADD PRIMARY KEY (`id_pembayaran`);
+
+--
+-- Indexes for table `petugas`
+--
+ALTER TABLE `petugas`
+  ADD PRIMARY KEY (`id_petugas`);
 
 --
 -- Indexes for table `siswa`
