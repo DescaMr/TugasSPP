@@ -32,8 +32,8 @@
 				<tr >			
 					<td class="align-middle">ID Petugas</td>
 					<td>
-						<input class="form-control my-1" type="text" name="id_petugas" value="<?php echo $d['id_petugas']; ?> " disabled>
-					
+						<input class="form-control my-1" name="id_petugas" type="text" value="<?php echo $d['id_petugas']; ?>" disabled>
+						<input class="form-control my-1" name="id_petugas" type="hidden" value="<?php echo $d['id_petugas']; ?>">
 					</td>
 				</tr>
 				<tr>
@@ -43,6 +43,10 @@
 				<tr>
 					<td class="align-middle">Nama Petugas</td>
 					<td><input class="form-control my-1" type="text" name="nama_petugas" value="<?php echo $d['nama_petugas']; ?>"></td>
+				</tr>
+				<tr>
+					<td class="align-middle">Password</td>
+					<td><input class="form-control my-1" type="password" name="password" value="<?php echo $d['password']; ?>"></td>
 				</tr>
 				<tr>
 					<td class="align-middle">Level</td>
